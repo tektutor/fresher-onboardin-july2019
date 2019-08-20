@@ -4,7 +4,23 @@
 	<groupId>org.tektutor</groupId>
 	<artifactId>tektutor-hello-app</artifactId>
 	<version>1.0.0</version>
-	
+	<build>
+                <plugins>
+                        <plugin>
+                                <groupId>org.apache.maven.plugins</groupId>
+                                <artifactId>maven-install-plugin</artifactId>
+                                <version>2.4</version>
+                                <configuration>
+                                        <groupId>org.tektutor</groupId>
+                                        <artifactId>tektutor-hello-app</artifactId>
+                                        <version>1.0.0</version>
+                                        <packaging>jar</packaging>
+                                        <file>${project.build.directory}/tektutor-hello-app-1.0.0.jar</file>
+                                </configuration>
+                        </plugin>
+                </plugins>
+       </build>
+
 	<profiles>
 		<profile>
 			<id>test</id>
