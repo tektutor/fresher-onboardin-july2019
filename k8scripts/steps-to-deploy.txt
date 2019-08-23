@@ -1,0 +1,24 @@
+1. Create a deployment script by name "hellorest-dep.yml".  The name of the deployment script can be anything.
+
+2. Now you can create the deployment using the script as below 
+	kubectl create -f hellorest-dep.yml
+
+3. Assuming, you got no errors, you can verify if your deployment
+   is created with the below command 
+	kubectl get deployments
+
+4. Now check if the pods pertaining to your deployment is created 
+	kubectl get pods
+5. In order to access your microservice, expose them as a service 
+kubectl expose deployment hello-rest-dep --type=NodePort --port=8080
+6. To find the node ips you can use the below command 
+	kubectl get nodes -o wide
+7. Now we need to find the nodeport alloted by K8 for our service
+	kubectl get services
+8. From browser, you can now test if your service is accessible at    the url
+	http://10.192.0.2:31614
+	http://10.192.0.3:31614
+	http://10.192.0.4:31614
+
+   In the above URL port 31614 is the NodePort where the service
+   is exposed

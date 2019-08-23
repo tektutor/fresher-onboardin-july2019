@@ -1,0 +1,19 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  labels:
+    app: hello-rest 
+  name: hello-rest-dep
+spec:
+  replicas: 4
+  selector:
+    matchLabels:
+      app: hello-rest 
+  template:
+    metadata:
+      labels:
+        app: hello-rest 
+    spec:
+      containers:
+      - image: tektutorjegan/hello-rest:2.0
+        name: hello-rest 
